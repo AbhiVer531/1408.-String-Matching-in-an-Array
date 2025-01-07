@@ -1,0 +1,12 @@
+class Solution:
+    def stringMatching(self, words: List[str]) -> List[str]:
+        ans = []
+        for word in words:
+            for compWord in words:
+                if word != compWord: 
+                    for i in range(len(compWord) - len(word) + 1):
+                        if compWord[i:i + len(word)] == word:
+                            if word not in ans: 
+                                ans.append(word)
+                            break 
+        return ans
